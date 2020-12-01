@@ -1,18 +1,6 @@
-<template>
-	<a-config-provider :locale="zhCN">
-		<f-screen />
-	</a-config-provider>
-	<watermark mark="DSEXPRESS" />
-</template>
+<template>Please open the console view</template>
 <script>
-	import zhCN from "ant-design-vue/es/locale/zh_CN";
-	import "./app.less";
-
-	import Watermark from "../components/watermark.vue";
 	export default {
-		components: {
-			Watermark,
-		},
 		computed: {
 			core() {
 				return this.$core;
@@ -34,9 +22,10 @@
 			},
 		},
 		data() {
-			return {
-				zhCN,
-			};
+			return {};
+		},
+		created() {
+			console.log(this.core);
 		},
 	};
 </script>
