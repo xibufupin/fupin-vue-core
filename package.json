@@ -1,6 +1,13 @@
 {
   "name": "fupin-vue-core",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "",
+  "entrypoint": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xibufupin/fupin-vue-core.git"
+  },
+  "license": "GPL",
   "scripts": {
     "dev": "vite",
     "build": "vite build --base="
