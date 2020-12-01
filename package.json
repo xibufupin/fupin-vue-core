@@ -2,7 +2,7 @@
   "name": "fupin-vue-core",
   "version": "0.0.3",
   "description": "",
-  "entrypoint": "src/index.ts",
+  "main": "src/index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xibufupin/fupin-vue-core.git"
