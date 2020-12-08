@@ -251,7 +251,7 @@ export default class Instance {
         if (this.isMinimize.value) {
             return 0
         } else {
-            this.innerWidth.value
+            return this.innerWidth.value
         }
     });
 
@@ -259,7 +259,7 @@ export default class Instance {
         if (this.isMinimize.value) {
             return 0
         } else {
-            this.innerHeight.value - 30 - 24
+            return this.innerHeight.value - 30 - 24
         }
     });
 
