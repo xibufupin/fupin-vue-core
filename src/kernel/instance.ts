@@ -111,7 +111,7 @@ export default class Instance {
      * 锁定鼠标事件（拖拽或移动时防止鼠标穿透） - isLockPinterEvents
      * 是否单例 - isSingleton
      */
-    public showWindow: any = ref(false);
+    public showWindow: any = ref(true);
 
     public showHeader: any = ref(true);
 
