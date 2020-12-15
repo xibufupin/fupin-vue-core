@@ -46,7 +46,7 @@ export default class Process {
 
     public create(module: any, props?: any) {
         if (typeof module == 'string') {
-            module = this.coreInstance.getModule().getCommand(module);
+            module = this.coreInstance.getModule().get(module);
         } else if (module.__scopeId) {
             module = {
                 component: module,
@@ -179,6 +179,6 @@ export default class Process {
     }
 
     public init() {
-        this.state.value = {};
+        this.state = reactive({});
     }
 }

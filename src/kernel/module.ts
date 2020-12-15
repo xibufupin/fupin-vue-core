@@ -1,4 +1,4 @@
-import { reactive, computed, ComputedRef } from 'vue'
+import { reactive, computed, ComputedRef, markRaw } from 'vue'
 
 import Core from './core'
 
@@ -9,16 +9,6 @@ export default class Module {
     private coreInstance: Core;
 
     private state: any = reactive({});
-
-    private commands: ComputedRef = computed(() => {
-        let commands: object = {};
-        for (let i in this.state) {
-            for (let j in this.state[i].modules) {
-                commands[[this.state[i].namespace, j].join(".")] = this.state[i].modules[j]
-            }
-        }
-        return commands;
-    })
 
     constructor(coreInstance?) {
         if (Module.moduleInstance) {
@@ -31,16 +21,26 @@ export default class Module {
         }
     };
 
-    public install(modules): void {
-        this.state = modules;
+    public install(command, module): void {
+        this.state[command] = () => {
+            return {
+                component: module.component,
+                option: module.option || {},
+                props: module.props || {}
+            }
+        }
     }
 
-    public getCommands() {
-        return this.commands.value;
+    public gets() {
+        let modules: object = {};
+        for (let i in this.state) {
+            modules[i] = this.state[i]();
+        }
+        return modules;
     }
 
-    public getCommand(name) {
-        return this.getCommands()[name];
+    public get(name) {
+        return this.state[name]();
     }
 
     public clear() {
@@ -48,6 +48,6 @@ export default class Module {
     }
 
     public init() {
-        this.state.value = {};
+        this.state = reactive({});
     }
 }

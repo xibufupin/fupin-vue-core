@@ -314,8 +314,6 @@ export default class Instance {
         this.isMaximize.value = false;
     }
 
-
-
     private setOption(option) {
         if (option.hasOwnProperty('title')) this.title.value = option.title;
         if (option.hasOwnProperty('icon')) this.icon.value = option.icon;
