@@ -72,7 +72,6 @@ export default class Instance {
      * Instance 可被用户自定义控制属性 - 第三部分
      * 
      * 是否活动 - isActive
-     * 是否包裹窗口 - isWindow
      * 是否显示托盘图标 - isTray
      * 是否最大化 - isMaximize
      * 是否最小化 - isMinimize
@@ -82,8 +81,6 @@ export default class Instance {
      * 是否单例 - isSingleton
      */
     public isActive: any = ref(false);
-
-    public isWindow: any = ref(true);
 
     public isTray: any = ref(false);
 
@@ -98,6 +95,28 @@ export default class Instance {
     public isLockPinterEvents: any = ref(false);
 
     public isSingleton: any = ref(false);
+
+
+
+    /**
+     * 
+     * Instance 可被用户自定义控制属性 - 第三部分
+     * 
+     * 是否显示包裹窗口 - showWindow
+     * 是否显示Header区域 - showHeader
+     * 是否显示Footer区域 - showFooter
+     * 是否最小化 - isMinimize
+     * 是否分割屏幕 - isSplit
+     * 分割屏幕位置 - splitPosition
+     * 锁定鼠标事件（拖拽或移动时防止鼠标穿透） - isLockPinterEvents
+     * 是否单例 - isSingleton
+     */
+    public showWindow: any = ref(false);
+
+    public showHeader: any = ref(true);
+
+    public showFooter: any = ref(false);
+
 
 
     /**
@@ -311,7 +330,6 @@ export default class Instance {
         if (option.hasOwnProperty('allowSplit')) this.allowSplit.value = option.allowSplit;
 
         if (option.hasOwnProperty('isActive')) this.isActive.value = option.isActive;
-        if (option.hasOwnProperty('isWindow')) this.isWindow.value = option.isWindow;
         if (option.hasOwnProperty('isTray')) this.isTray.value = option.isTray;
         if (option.hasOwnProperty('isMaximize')) this.isMaximize.value = option.isMaximize;
         if (option.hasOwnProperty('isMinimize')) this.isMinimize.value = option.isMinimize;
@@ -319,6 +337,11 @@ export default class Instance {
         if (option.hasOwnProperty('splitPosition')) this.splitPosition.value = option.splitPosition;
         if (option.hasOwnProperty('isLockPinterEvents')) this.isLockPinterEvents.value = option.isLockPinterEvents;
         if (option.hasOwnProperty('isSingleton')) this.isSingleton.value = option.isSingleton;
+
+        if (option.hasOwnProperty('showWindow')) this.showWindow.value = option.showWindow;
+        if (option.hasOwnProperty('showHeader')) this.showHeader.value = option.showHeader;
+        if (option.hasOwnProperty('showFooter')) this.showFooter.value = option.showFooter;
+
 
         if (option.hasOwnProperty('width')) this.width.value = option.width;
         if (option.hasOwnProperty('height')) this.height.value = option.height;

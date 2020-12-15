@@ -13,9 +13,7 @@ export default interface Module {
         allowResize?: boolean,
         allowSplit?: boolean,
 
-
         isActive?: boolean,
-        isWindow?: boolean,
         isTray?: boolean,
         isMaximize?: boolean,
         isMinimize?: boolean,
@@ -23,6 +21,10 @@ export default interface Module {
         splitPosition?: string,
         isLockPinterEvents?: boolean,
         isSingleton?: boolean,
+        
+        showWindow?: boolean,
+        showHeader?: boolean,
+        showFooter?: boolean,
 
         width?: number,
         height?: number,
