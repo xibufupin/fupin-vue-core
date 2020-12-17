@@ -142,9 +142,9 @@ export default class Instance {
 
     public minHeight: any = ref(240);
 
-    public maxWidth: any = ref(1200);
+    public maxWidth: any = ref(65535);
 
-    public maxHeight: any = ref(900);
+    public maxHeight: any = ref(65535);
 
     public x: any = ref(100);
 
