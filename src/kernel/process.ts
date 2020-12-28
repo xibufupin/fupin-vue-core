@@ -44,7 +44,7 @@ export default class Process {
         return Object.keys(this.state);
     }
 
-    public create(module: any, props?: any) {
+    public create(module: any, props?: any, extraOption?: any) {
         if (typeof module == 'string') {
             module = this.coreInstance.getModule().get(module);
         } else if (module.__scopeId) {
@@ -57,7 +57,7 @@ export default class Process {
             throw new Error("[Process] module or command is invalid")
         }
 
-        let instance = this.createInstance(module, props);
+        let instance = this.createInstance(module, props, extraOption);
         this.state[instance.pid] = instance;
         setTimeout(() => {
             this.active(instance.pid);
@@ -141,13 +141,16 @@ export default class Process {
 
 
     // TODO 这个layer的算法是瞎写的
-    public createInstance(module, props) {
+    public createInstance(module, props, extraOption) {
         let pid = this.createPid();
         if (!module.props) {
             module.props = {};
         }
         if (props) {
             module.props = { ...module.props, ...props }
+        }
+        if (extraOption) {
+            module.option = Object.assign(module.option, extraOption);
         }
         return new Instance({
             pid,
@@ -172,7 +175,7 @@ export default class Process {
     }
 
     public clear() {
-        for(let i in this.state) {
+        for (let i in this.state) {
             this.state[i].destory();
         }
         // this.init();
