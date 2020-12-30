@@ -46,7 +46,11 @@ export default class Process {
 
     public create(module: any, props?: any, extraOption?: any) {
         if (typeof module == 'string') {
+            let originModule = module;
             module = this.coreInstance.getModule().get(module);
+            if (!module) {
+                throw new Error(`[Process] command "${originModule}" is not exist`)
+            }
         } else if (module.__scopeId) {
             module = {
                 component: module,

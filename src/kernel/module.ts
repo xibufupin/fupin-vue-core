@@ -40,7 +40,12 @@ export default class Module {
     }
 
     public get(name) {
-        return this.state[name]();
+        console.log(this.state, name);
+        if (this.state.hasOwnProperty(name)) {
+            return this.state[name]();
+        } else {
+            return false;
+        }
     }
 
     public clear() {
