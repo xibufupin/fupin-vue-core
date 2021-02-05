@@ -250,7 +250,7 @@ export default class Instance {
         if (this.isMinimize.value) {
             return 0;
         } else if (this.isMaximize.value) {
-            return this.actualWidth;
+            return this.actualWidth.value;
         } else {
             return this.actualWidth.value - 1 * 2;
         }
@@ -260,7 +260,7 @@ export default class Instance {
         if (this.isMinimize.value) {
             return 0;
         } else if (this.isMaximize.value) {
-            return this.actualHeight;
+            return this.actualHeight.value;
         } else {
             return this.actualHeight.value - 1 * 2
         }
@@ -278,6 +278,7 @@ export default class Instance {
         if (this.isMinimize.value) {
             return 0
         } else {
+            console.log(this.innerHeight.value, this.showHeader.value ? 30 : 0, this.showFooter.value ? 24 : 0);
             return this.innerHeight.value - (this.showHeader.value ? 30 : 0) - (this.showFooter.value ? 24 : 0);
         }
     });
