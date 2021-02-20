@@ -4,7 +4,8 @@ export default interface Module {
     option: {
         title?: string,
         icon?: string,
-        shortcut?: boolean
+        shortcut?: boolean,
+        common?: boolean,
 
         allowMaximize?: boolean,
         allowMinimize?: boolean,
