@@ -278,7 +278,6 @@ export default class Instance {
         if (this.isMinimize.value) {
             return 0
         } else {
-            console.log(this.innerHeight.value, this.showHeader.value ? 30 : 0, this.showFooter.value ? 24 : 0);
             return this.innerHeight.value - (this.showHeader.value ? 30 : 0) - (this.showFooter.value ? 24 : 0);
         }
     });
