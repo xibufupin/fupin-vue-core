@@ -1,49 +1,51 @@
 import { Component } from "vue";
 
 export default interface Module {
-    option: {
-        title?: string,
-        icon?: string,
-        shortcut?: boolean,
-        common?: boolean,
+	option: {
+		title?: string,
+		icon?: string,
+		shortcut?: boolean,
+		common?: boolean,
 
-        allowMaximize?: boolean,
-        allowMinimize?: boolean,
-        allowClose?: boolean,
-        allowMove?: boolean,
-        allowResize?: boolean,
-        allowSplit?: boolean,
+		allowMaximize?: boolean,
+		allowMinimize?: boolean,
+		allowClose?: boolean,
+		allowMove?: boolean,
+		allowResize?: boolean,
+		allowSplit?: boolean,
 
-        isActive?: boolean,
-        isTray?: boolean,
-        isMaximize?: boolean,
-        isMinimize?: boolean,
-        isSplit?: boolean,
-        splitPosition?: string,
-        isLockPinterEvents?: boolean,
-        isSingleton?: boolean,
-        
-        showWindow?: boolean,
-        showHeader?: boolean,
-        showFooter?: boolean,
+		isActive?: boolean,
+		isTray?: boolean,
+		isMaximize?: boolean,
+		isMinimize?: boolean,
+		isSplit?: boolean,
+		splitPosition?: string,
+		isLockPinterEvents?: boolean,
+		isSingleton?: boolean,
 
-        width?: number,
-        height?: number,
-        minWidth?: number,
-        minHeight?: number,
-        maxWidth?: number,
-        maxHeight?: number,
-        x?: number,
-        y?: number,
-        status?: string,
+		showWindow?: boolean,
+		showHeader?: boolean,
+		showFooter?: boolean,
 
-        // layer 不直接赋值，由process计算是否采用用户指定值
-        layer?: number,
+		width?: number,
+		height?: number,
+		minWidth?: number,
+		minHeight?: number,
+		maxWidth?: number,
+		maxHeight?: number,
+		x?: number,
+		y?: number,
+		status?: string,
 
-    },
+		// layer 不直接赋值，由process计算是否采用用户指定值
+		layer?: number,
+		system?: string,
+		command?: string
 
-    // props 不直接赋值，由process传入Instance构造方法
-    props?: object
+	},
 
-    component: Component,
+	// props 不直接赋值，由process传入Instance构造方法
+	props?: object
+
+	component: Component,
 }
